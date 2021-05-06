@@ -7,27 +7,28 @@
   </a>
 </p>
 
-# German Corona Impftermin Helper
+# German Corona Vaccination Appointment Helper / Deutscher Corona-Impftermin-Helfer
 
-Find an Impftermin or Impfcode on [impfterminservice.de](https://www.impfterminservice.de/).
+Find a vaccination appointment or a vaccination code (called "Impfcode") on [impfterminservice.de](https://www.impfterminservice.de/).
+- Für deutschsprachige Version der Erläuterungen siehe ...((URL of German readme, in progress))
 
 <p align="center">
   <img src="docs/impftermin.gif">
 </p>
 
-Automatically checks the website and notifies you about open appointments and available Impf-Codes.
-The app opens a Chrome browser and automatically navigates through the page. It beeps if it finds an open slot. You enter personal information and book the appointment manually.
+Automatically checks the official vaccination website and notifies you about open appointments and available Impfcodes.
+The app opens a Chrome browser and automatically navigates through the page. It beeps if it finds an open slot. Then, you enter your personal information and book the appointment manually.
 
 ## Run the application without a development environment
 
-If you just want to run the application head over to the [Releases](https://github.com/marcoklein/impftermin/releases) page and download the latest version.
+If you just want to run the application, head over to the [Releases](https://github.com/marcoklein/impftermin/releases) page and download the latest version.
 Currently the app is compiled for Windows, macOS and Linux.
 
 Create a new file called `config.json` next to the executable. This is where you define your locations please read the [Configuration](#configuration) section for setup.
 
-After you have created the config.json you can just run the program and wait for your appointment :)
+After you have created the config.json, you can just run the program and wait for your appointment :)
 
-If you have questions, something doesn't work, or you want a new feature then please create a new [issue](https://github.com/marcoklein/impftermin/issues).
+If you have questions, something doesn't work, or you want a new feature, then please create a new [issue](https://github.com/marcoklein/impftermin/issues).
 
 ## Getting started - for development
 
@@ -56,20 +57,20 @@ Run with
 yarn start
 ```
 
-The application makes a sound when started. Ensure, that you hear the sound and adjust your sound settings if needed. Impftermin will play that sound if if finds an available slot.
+The application makes a sound when started. Ensure, that you hear the sound and adjust your sound settings if needed. Impftermin will play that sound if it finds an available time slot for vaccination.
 
 # Project setup
 
-I focused on concise and easy to read code. Comments are in place to improve understanding even though one might argue that comments describing code are not good practice.
+I focused on concise and easy to read code. Comments are in place to improve understanding, even though one might argue that comments describing code are not good practice.
 You might need to get your head around `async` and `await`.
 
 ## Configuration
 
-Impftermin loads the `config.json` from its starting folder. It walks over the defined queue and checks for open appointments for each entry. If you leave the code empty it checks if there are open slots to get a new Impfcode. If you specify a code it will enter the code on the specified location.
+Impftermin loads the `config.json` from its starting folder. It walks over the defined queue and checks for open appointments for each entry. If you leave the code empty, it checks if there are open slots to get a new Impfcode - provided you are entitled for a Corona vaccination shot yet. If you do specify a given code, it will enter the code on the specified location.
 
-Impftermin will walk through the queue and interrupts the app for 25 minutes if it finds an open appointment or an open slot to retrieve a code.
+Impftermin will walk through the queue without you needing to refresh the page regularly. It interrupts the app for 25 minutes if it finds an open appointment or an open slot to retrieve a code.
 
-> You need to enter your personal data by your own then!
+> You need to enter your personal data by your own within 15 minutes then!
 
 The intervalInMinutes property defines the timeout between two website checks.
 
@@ -89,7 +90,7 @@ The intervalInMinutes property defines the timeout between two website checks.
 }
 ```
 
-A queue entry defines a `url` and `code`. Get the url by choosing your Impf-Zentrum from https://www.impfterminservice.de/impftermine, press "zum Impfzentrum"...
+A queue entry defines a `url` and `code`. Get the url by choosing your local (German) vaccination center from https://www.impfterminservice.de/impftermine, press "zum Impfzentrum"...
 
 ![](./docs/finding-your-location-url.png)
 
@@ -108,14 +109,14 @@ The following chart describes how Impftermin will check the site:
 We use [debug](https://www.npmjs.com/package/debug) to print logs.
 The application logs with the namespace `impftermin`.
 
-So to include all logs set the DEBUG environment variable to `impftermin:*`.
+So, to include all logs set the DEBUG environment variable to `impftermin:*`.
 
 Logs are enabled by default.
 
 ## Environment variables
 
 You may configure a `.env`.
-Using Telegram is optional. Check their docs if you want to configure a bot to get notifications about open appointments.
+Using Telegram is optional. Please check their docs if you want to configure a bot to get notifications about open appointments.
 
 ```
 TELEGRAM_TOKEN=
@@ -141,8 +142,8 @@ For development
 
 # Attribution and legal
 
-Due to this project being focused on the German website for vaccination appointments some documentation is written in German.
-Docs cover technically concerns mostly in English and sometimes Denglisch.
+Due to this project being focused on the German website for vaccination appointments, some documentation is written in German. Full German readme is currently in progress.
+Docs covering technically concerns mostly in English and sometimes 'Denglisch'.
 
 ## Licenses
 
